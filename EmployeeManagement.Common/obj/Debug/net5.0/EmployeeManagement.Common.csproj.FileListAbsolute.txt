@@ -1,0 +1,12 @@
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\bin\Debug\net5.0\EmployeeManagement.Common.deps.json
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\bin\Debug\net5.0\EmployeeManagement.Common.dll
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\bin\Debug\net5.0\ref\EmployeeManagement.Common.dll
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\bin\Debug\net5.0\EmployeeManagement.Common.pdb
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debug\net5.0\EmployeeManagement.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debug\net5.0\EmployeeManagement.Common.AssemblyInfoInputs.cache
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debug\net5.0\EmployeeManagement.Common.AssemblyInfo.cs
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debug\net5.0\EmployeeManagement.Common.csproj.CoreCompileInputs.cache
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debug\net5.0\EmployeeManagement.Common.dll
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debug\net5.0\ref\EmployeeManagement.Common.dll
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debug\net5.0\EmployeeManagement.Common.pdb
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debug\net5.0\EmployeeManagement.Common.csproj.AssemblyReference.cache

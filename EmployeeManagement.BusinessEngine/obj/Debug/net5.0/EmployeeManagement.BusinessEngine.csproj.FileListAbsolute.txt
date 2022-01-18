@@ -1,0 +1,12 @@
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\bin\Debug\net5.0\EmployeeManagement.BusinessEngine.deps.json
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\bin\Debug\net5.0\EmployeeManagement.BusinessEngine.dll
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\bin\Debug\net5.0\ref\EmployeeManagement.BusinessEngine.dll
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\bin\Debug\net5.0\EmployeeManagement.BusinessEngine.pdb
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\EmployeeManagement.BusinessEngine.csproj.AssemblyReference.cache
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\EmployeeManagement.BusinessEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\EmployeeManagement.BusinessEngine.AssemblyInfoInputs.cache
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\EmployeeManagement.BusinessEngine.AssemblyInfo.cs
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\EmployeeManagement.BusinessEngine.csproj.CoreCompileInputs.cache
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\EmployeeManagement.BusinessEngine.dll
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\ref\EmployeeManagement.BusinessEngine.dll
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\EmployeeManagement.BusinessEngine.pdb
