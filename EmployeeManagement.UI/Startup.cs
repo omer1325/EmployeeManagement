@@ -1,4 +1,7 @@
+using EmployeeManagement.Common.Mappings;
+using EmployeeManagement.Data.Contracts;
 using EmployeeManagement.Data.DataContext;
+using EmployeeManagement.Data.Implementaion;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +33,12 @@ namespace EmployeeManagement.UI
             {
                 options.UseNpgsql(Configuration.GetConnectionString("IdentityConnection"));
             });
+
+            services.AddAutoMapper(typeof(Maps));
+
+            services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeeLeaveAllocationRepository>();
+            services.AddScoped<IEmployeeLeaveRequestRepository, EmployeeLeaveRequestRepository>();
+            services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

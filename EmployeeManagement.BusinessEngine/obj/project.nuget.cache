@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "y5I3B9Pnk8DZa621eg3zAasUF0W2VnfV4GfO8wBlmoE/LBjd3pP9R+lZhu2tFRkNkXUjIpGGTGynaPrUanzZJQ==",
+  "dgSpecHash": "vcXP1O0AYtVUUwCrSLIsDu/r5/cPrfnEiPE0vjKYz7Ph+cUNrjF1u5JFgLrSXlYlCo5y/cUiZ/MFXO2ho0LgCA==",
   "success": true,
   "projectFilePath": "C:\\Users\\omer\\source\\repos\\EmployeeManagement\\EmployeeManagement.BusinessEngine\\EmployeeManagement.BusinessEngine.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\omer\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\omer\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\omer\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\omer\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\omer\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\omer\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\omer\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

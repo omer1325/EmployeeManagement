@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace EmployeeManagement.Data.DbModels
 {
     public class EmployeeLeaveType : BaseEntity
