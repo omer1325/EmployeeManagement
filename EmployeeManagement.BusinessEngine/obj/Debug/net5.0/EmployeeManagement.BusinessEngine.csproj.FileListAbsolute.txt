@@ -9,3 +9,9 @@ C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\EmployeeManagement.BusinessEngine.dll
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\ref\EmployeeManagement.BusinessEngine.dll
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\EmployeeManagement.BusinessEngine.pdb
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\bin\Debug\net5.0\EmployeeManagement.Common.dll
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\bin\Debug\net5.0\EmployeeManagement.Data.dll
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\bin\Debug\net5.0\EmployeeManagement.Common.pdb
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\bin\Debug\net5.0\EmployeeManagement.Data.pdb
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\EmployeeManagement.BusinessEngine.csproj.AssemblyReference.cache
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.BusinessEngine\obj\Debug\net5.0\EmployeeManagement.BusinessEngine.csproj.CopyComplete

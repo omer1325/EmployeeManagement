@@ -10,3 +10,6 @@ C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debu
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debug\net5.0\ref\EmployeeManagement.Common.dll
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debug\net5.0\EmployeeManagement.Common.pdb
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debug\net5.0\EmployeeManagement.Common.csproj.AssemblyReference.cache
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\bin\Debug\net5.0\EmployeeManagement.Data.dll
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\bin\Debug\net5.0\EmployeeManagement.Data.pdb
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Common\obj\Debug\net5.0\EmployeeManagement.Common.csproj.CopyComplete

@@ -1,3 +1,5 @@
+using EmployeeManagement.BusinessEngine.Contracts;
+using EmployeeManagement.BusinessEngine.Implements;
 using EmployeeManagement.Common.Mappings;
 using EmployeeManagement.Data.Contracts;
 using EmployeeManagement.Data.DataContext;
@@ -28,7 +30,7 @@ namespace EmployeeManagement.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            
             services.AddDbContext<EmployeeManagementContext>(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("IdentityConnection"));
@@ -36,9 +38,15 @@ namespace EmployeeManagement.UI
 
             services.AddAutoMapper(typeof(Maps));
 
-            services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeeLeaveAllocationRepository>();
-            services.AddScoped<IEmployeeLeaveRequestRepository, EmployeeLeaveRequestRepository>();
-            services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
+            //services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeeLeaveAllocationRepository>();
+            //services.AddScoped<IEmployeeLeaveRequestRepository, EmployeeLeaveRequestRepository>();
+            //services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
+
+            services.AddScoped<IEmployeeLeaveTypeBusinessEngine, EmployeeLeaveTypeBusinessEngine>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,6 +72,10 @@ namespace EmployeeManagement.UI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                    );
                 endpoints.MapRazorPages();
             });
         }

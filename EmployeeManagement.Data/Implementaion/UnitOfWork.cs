@@ -3,7 +3,7 @@ using EmployeeManagement.Data.DataContext;
 
 namespace EmployeeManagement.Data.Implementaion
 {
-    class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly EmployeeManagementContext _context;
         public IEmployeeLeaveAllocationRepository employeeLeaveAllocationRepository { get; private set; }
