@@ -9,6 +9,7 @@ namespace EmployeeManagement.Common.ViewModels
         public string Name { get; set; }
         public int DefaultDays { get; set; }
         public DateTime DateCreated { get; set; }
+        public bool IsActive { get; set; }
 
         //MVVM Create EmployeeType
         public void SetEmployeeType(string name)

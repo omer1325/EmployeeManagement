@@ -32,38 +32,61 @@
             </thead>
 
             <tbody>
-                
-                    @foreach (var item in Model)
-                    {
-                <tr>
-                    <td>@item.Name </td>
-                    <td>@item.DateCreated</td>
-                    <td>
-                        <div class="hidden-sm hidden-xs btn-group">
-                            @*<button class="btn btn-xs btn-success">
-                                <i class="ace-icon fa fa-check bigger-120"></i>
-                            </button>*@
-                            
-                            <a class="btn btn-xs btn-info" asp-controller="EmployeeLeaveTypes" asp-action="Edit" asp-route-id="@item.Id">
-                                <i class="ace-icon fa fa-pencil bigger-120"></i>
-                            </a>
 
-                            <a class="btn btn-xs btn-danger">
-                                <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                            </a>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name </td>
+                        <td>@item.DateCreated</td>
+                        <td>
+                            <div class="hidden-sm hidden-xs btn-group">
+                                <a class="btn btn-xs btn-info" asp-controller="EmployeeLeaveTypes" asp-action="Edit" asp-route-id="@item.Id">
+                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                </a>
+                                <a class="btn btn-xs btn-danger" id="btnRemove" data-id="@item.Id">
+                                    <i class="ace-icon fa fa-trash bigger-120"></i>
+                                </a>
 
-                            <a class="btn btn-xs btn-warning">
-                                <i class="ace-icon fa fa-flag bigger-120"></i>
-                            </a>
-                        </div>
-
-
-                    </td>
-                </tr>
-                        
-                    }
-                
+                                <a class="btn btn-xs btn-warning">
+                                    <i class="ace-icon fa fa-flag bigger-120"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
 </div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnRemove").on("click", function () {
+                var id = $(this).data("id");
+                swal({
+                    title: 'Silmek İstediğinize Emin Misiniz?',
+                    text: 'Silinen Data Geri Alınamaz!',
+                    icon: 'warning',
+                    buttons: true,
+                    dangerMode: true
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            type: "DELETE",
+                            url: "/EmployeeLeaveTypes/Delete/" + id,
+                            success: function (data) {
+                                if (data.success) {
+                                    toastr.success(data.message);
+                                } else {
+                                    toastr.error(data.message);
+                                }
+                            }
+                        });
+                    }
+                   
+                });
+            });
+        });
+    </script>
+}

@@ -31,7 +31,7 @@ namespace EmployeeManagement.BusinessEngine.Implements
         #region CustomMethods
         public Result<List<EmployeeLeaveTypeVM>> GetAllEmployeeLeaveTypes()
         {
-            var data = _unitOfWork.employeeLeaveTypeRepository.GetAll().ToList();
+            var data = _unitOfWork.employeeLeaveTypeRepository.GetAll(filter => filter.IsActive == true).ToList();
 
             var leaveTypes = _mapper.Map<List<EmployeeLeaveType>, List<EmployeeLeaveTypeVM>>(data);
 
@@ -46,6 +46,8 @@ namespace EmployeeManagement.BusinessEngine.Implements
                 {
                     var leaveType = _mapper.Map<EmployeeLeaveTypeVM, EmployeeLeaveType>(model);
                     leaveType.DateCreated = DateTime.Now;
+                    leaveType.IsActive = true;
+
                     _unitOfWork.employeeLeaveTypeRepository.Add(leaveType);
                     _unitOfWork.Save();
                     return new Result<EmployeeLeaveTypeVM>(true, ResultConstant.RecordCreateSuccessfully);
@@ -95,6 +97,23 @@ namespace EmployeeManagement.BusinessEngine.Implements
             else
             {
                 return new Result<EmployeeLeaveTypeVM>(false, ResultConstant.RecordCreateNotBeEmpty);
+            }
+        }
+
+        public Result<EmployeeLeaveTypeVM> RemoveEmployeeLeaveType(int id)
+        {
+            var data = _unitOfWork.employeeLeaveTypeRepository.Get(id);
+
+            if (data != null)
+            {
+                data.IsActive = false;
+                _unitOfWork.employeeLeaveTypeRepository.Update(data);
+                _unitOfWork.Save();
+                return new Result<EmployeeLeaveTypeVM>(true, ResultConstant.RecordCreateSuccessfully);
+            }
+            else
+            {
+                return new Result<EmployeeLeaveTypeVM>(false, ResultConstant.RecordCreateNotSuccessfully);
             }
         }
 

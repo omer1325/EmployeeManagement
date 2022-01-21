@@ -22,6 +22,18 @@ namespace EmployeeManagement.BusinessEngine.Contracts
         /// <returns></returns>
         Result<EmployeeLeaveTypeVM> GetAllEmployeeLeaveType(int id);
 
+        /// <summary>
+        /// Update Employee Leave Type
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         Result<EmployeeLeaveTypeVM> EditEmployeeLeaveType(EmployeeLeaveTypeVM model);
+
+        /// <summary>
+        /// Delete Employee Leave Type
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Result<EmployeeLeaveTypeVM> RemoveEmployeeLeaveType(int id);
     }
 }
