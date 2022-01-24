@@ -1,4 +1,6 @@
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\bin\Debug\net5.0\EmployeeManagement.Data.deps.json
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\bin\Debug\net5.0\EmployeeManagement.Data.runtimeconfig.json
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\bin\Debug\net5.0\EmployeeManagement.Data.runtimeconfig.dev.json
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\bin\Debug\net5.0\EmployeeManagement.Data.dll
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\bin\Debug\net5.0\ref\EmployeeManagement.Data.dll
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\bin\Debug\net5.0\EmployeeManagement.Data.pdb
@@ -9,7 +11,5 @@ C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\obj\Debug\
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\obj\Debug\net5.0\EmployeeManagement.Data.dll
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\obj\Debug\net5.0\ref\EmployeeManagement.Data.dll
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\obj\Debug\net5.0\EmployeeManagement.Data.pdb
-C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\bin\Debug\net5.0\EmployeeManagement.Data.runtimeconfig.json
-C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\bin\Debug\net5.0\EmployeeManagement.Data.runtimeconfig.dev.json
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\obj\Debug\net5.0\EmployeeManagement.Data.genruntimeconfig.cache
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.Data\obj\Debug\net5.0\EmployeeManagement.Data.csproj.AssemblyReference.cache

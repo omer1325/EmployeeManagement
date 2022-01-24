@@ -16,26 +16,27 @@ namespace EmployeeManagement.BusinessEngine.Implements
         #region Variables
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IEmployeeLeaveTypeRepository _employeeLeaveTypeRepository;
 
         #endregion
 
         #region Constructor
-        public EmployeeLeaveTypeBusinessEngine(IUnitOfWork unitOfWork, IMapper mapper)
+        public EmployeeLeaveTypeBusinessEngine(IUnitOfWork unitOfWork, IMapper mapper, IEmployeeLeaveTypeRepository employeeLeaveTypeRepository)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _employeeLeaveTypeRepository = employeeLeaveTypeRepository;
         }
-
         #endregion
 
         #region CustomMethods
         public Result<List<EmployeeLeaveTypeVM>> GetAllEmployeeLeaveTypes()
         {
-            var data = _unitOfWork.employeeLeaveTypeRepository.GetAll(filter => filter.IsActive == true).ToList();
+            var data = _employeeLeaveTypeRepository.GetAll(filter => filter.IsActive == true).ToList();
 
             var leaveTypes = _mapper.Map<List<EmployeeLeaveType>, List<EmployeeLeaveTypeVM>>(data);
 
-            return new Result<List<EmployeeLeaveTypeVM>>(true, ResultConstant.RecordFound, leaveTypes);
+            return new Result<List<EmployeeLeaveTypeVM>>(true, ResultConstant.RecordsFound, leaveTypes);
         }
 
         public Result<EmployeeLeaveTypeVM> CreateEmployeeLeaveType(EmployeeLeaveTypeVM model)
@@ -48,7 +49,7 @@ namespace EmployeeManagement.BusinessEngine.Implements
                     leaveType.DateCreated = DateTime.Now;
                     leaveType.IsActive = true;
 
-                    _unitOfWork.employeeLeaveTypeRepository.Add(leaveType);
+                    _employeeLeaveTypeRepository.Add(leaveType);
                     _unitOfWork.Save();
                     return new Result<EmployeeLeaveTypeVM>(true, ResultConstant.RecordCreateSuccessfully);
                 }
@@ -63,9 +64,9 @@ namespace EmployeeManagement.BusinessEngine.Implements
             }
         }
 
-        public Result<EmployeeLeaveTypeVM> GetAllEmployeeLeaveType(int id)
+        public Result<EmployeeLeaveTypeVM> GetEmployeeLeaveTypeById(int id)
         {
-            var data = _unitOfWork.employeeLeaveTypeRepository.Get(id);
+            var data = _employeeLeaveTypeRepository.Get(id);
             if (data != null)
             {
                 var leaveType = _mapper.Map<EmployeeLeaveType, EmployeeLeaveTypeVM>(data);
@@ -85,13 +86,13 @@ namespace EmployeeManagement.BusinessEngine.Implements
                 try
                 {
                     var leaveType = _mapper.Map<EmployeeLeaveTypeVM, EmployeeLeaveType>(model);
-                    _unitOfWork.employeeLeaveTypeRepository.Update(leaveType);
+                    _employeeLeaveTypeRepository.Update(leaveType);
                     _unitOfWork.Save();
-                    return new Result<EmployeeLeaveTypeVM>(true, ResultConstant.RecordCreateSuccessfully);
+                    return new Result<EmployeeLeaveTypeVM>(true, ResultConstant.RecordUpdateSuccessfully);
                 }
                 catch (System.Exception ex)
                 {
-                    return new Result<EmployeeLeaveTypeVM>(false, ResultConstant.RecordCreateNotSuccessfully + "=>" + ex.Message.ToString());
+                    return new Result<EmployeeLeaveTypeVM>(false, ResultConstant.RecordUpdateNotSuccessfully + "=>" + ex.Message.ToString());
                 }
             }
             else
@@ -102,18 +103,18 @@ namespace EmployeeManagement.BusinessEngine.Implements
 
         public Result<EmployeeLeaveTypeVM> RemoveEmployeeLeaveType(int id)
         {
-            var data = _unitOfWork.employeeLeaveTypeRepository.Get(id);
+            var data = _employeeLeaveTypeRepository.Get(id);
 
             if (data != null)
             {
                 data.IsActive = false;
-                _unitOfWork.employeeLeaveTypeRepository.Update(data);
+                _employeeLeaveTypeRepository.Update(data);
                 _unitOfWork.Save();
-                return new Result<EmployeeLeaveTypeVM>(true, ResultConstant.RecordCreateSuccessfully);
+                return new Result<EmployeeLeaveTypeVM>(true, ResultConstant.RecordDeleteSuccessfully);
             }
             else
             {
-                return new Result<EmployeeLeaveTypeVM>(false, ResultConstant.RecordCreateNotSuccessfully);
+                return new Result<EmployeeLeaveTypeVM>(false, ResultConstant.RecordDeleteNotSuccessfully);
             }
         }
 

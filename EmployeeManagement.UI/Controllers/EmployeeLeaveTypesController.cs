@@ -1,13 +1,12 @@
 ﻿using EmployeeManagement.BusinessEngine.Contracts;
+using EmployeeManagement.Common.ConstantModels;
 using EmployeeManagement.Common.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EmployeeManagement.UI.Controllers
 {
+    [Authorize]
     public class EmployeeLeaveTypesController : Controller
     {
         private readonly IEmployeeLeaveTypeBusinessEngine _employeeLeaveTypeBusinessEngine;
@@ -17,6 +16,8 @@ namespace EmployeeManagement.UI.Controllers
             _employeeLeaveTypeBusinessEngine = employeeLeaveTypeBusinessEngine;
         }
 
+
+    
         public IActionResult Index()
         {
             var data = _employeeLeaveTypeBusinessEngine.GetAllEmployeeLeaveTypes();
@@ -62,7 +63,7 @@ namespace EmployeeManagement.UI.Controllers
                 return View();
             }
 
-            var data = _employeeLeaveTypeBusinessEngine.GetAllEmployeeLeaveType(id);
+            var data = _employeeLeaveTypeBusinessEngine.GetEmployeeLeaveTypeById(id);
             if (data.IsSuccess)
             {
                 return View(data.Data);
@@ -96,7 +97,7 @@ namespace EmployeeManagement.UI.Controllers
         {
             if (id <= 0)
             {
-                return Json(new { success = false, message = "Silmek için kayıt seçiniz" });
+                return Json(new { success = false, message = ResultConstant.RecordDeleteNotBeEmpty });
             }
 
             var data = _employeeLeaveTypeBusinessEngine.RemoveEmployeeLeaveType(id);

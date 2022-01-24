@@ -20,7 +20,7 @@ namespace EmployeeManagement.BusinessEngine.Contracts
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Result<EmployeeLeaveTypeVM> GetAllEmployeeLeaveType(int id);
+        Result<EmployeeLeaveTypeVM> GetEmployeeLeaveTypeById(int id);
 
         /// <summary>
         /// Update Employee Leave Type

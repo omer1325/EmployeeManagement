@@ -8,14 +8,16 @@ namespace EmployeeManagement.Data.Implementaion
         private readonly EmployeeManagementContext _context;
         public IEmployeeLeaveAllocationRepository employeeLeaveAllocationRepository { get; private set; }
         public IEmployeeLeaveRequestRepository employeeLeaveRequestRepository { get; private set; }
-        public IEmployeeLeaveTypeRepository employeeLeaveTypeRepository { get; private set; }
+        //public IEmployeeLeaveTypeRepository employeeLeaveTypeRepository { get; private set; }
+        public IEmployeeRepository employeeRepository { get; private set; }
 
         public UnitOfWork(EmployeeManagementContext context)
         {
             _context = context;
-            employeeLeaveAllocationRepository = new EmployeeLeaveAllocationRepository(context);
-            employeeLeaveRequestRepository = new EmployeeLeaveRequestRepository(context);
-            employeeLeaveTypeRepository = new EmployeeLeaveTypeRepository(context);
+            employeeLeaveAllocationRepository = new EmployeeLeaveAllocationRepository(_context);
+            employeeLeaveRequestRepository = new EmployeeLeaveRequestRepository(_context);
+            //employeeLeaveTypeRepository = new EmployeeLeaveTypeRepository(_context);
+            employeeRepository = new EmployeeRepository(_context);
         }
 
         public void Save()

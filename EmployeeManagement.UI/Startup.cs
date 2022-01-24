@@ -1,12 +1,15 @@
 using EmployeeManagement.BusinessEngine.Contracts;
 using EmployeeManagement.BusinessEngine.Implements;
+using EmployeeManagement.Common.CustomValidation;
 using EmployeeManagement.Common.Mappings;
 using EmployeeManagement.Data.Contracts;
 using EmployeeManagement.Data.DataContext;
+using EmployeeManagement.Data.DbModels;
 using EmployeeManagement.Data.Implementaion;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,13 +43,31 @@ namespace EmployeeManagement.UI
 
             //services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeeLeaveAllocationRepository>();
             //services.AddScoped<IEmployeeLeaveRequestRepository, EmployeeLeaveRequestRepository>();
-            //services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
+            services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
 
             services.AddScoped<IEmployeeLeaveTypeBusinessEngine, EmployeeLeaveTypeBusinessEngine>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
+            services.AddSession(); 
+
+            services.AddIdentity<Employee, IdentityRole>( opts => 
+            {
+                opts.User.RequireUniqueEmail = true;
+                opts.User.AllowedUserNameCharacters = "abcçdefgðhýijklmnoöpqrsþtuüvwxyzABCÇDEFGÐHIÝJKLMNOÖPQRSÞTUÜVWXYZ0123456789-._";
+                opts.Password.RequiredLength = 8;
+                opts.Password.RequireNonAlphanumeric = true;
+                opts.Password.RequireUppercase = true;
+                opts.Password.RequireLowercase = true;
+                opts.Password.RequireDigit = true;
+            })
+                .AddEntityFrameworkStores<EmployeeManagementContext>()
+                .AddPasswordValidator<CustomPasswordValidator>()
+                .AddUserValidator<CustomUserValidator>()
+                .AddErrorDescriber<CustomIdentityErrorDescriber>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,8 +88,9 @@ namespace EmployeeManagement.UI
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
