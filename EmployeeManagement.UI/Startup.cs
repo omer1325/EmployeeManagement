@@ -1,5 +1,6 @@
 using EmployeeManagement.BusinessEngine.Contracts;
 using EmployeeManagement.BusinessEngine.Implements;
+using EmployeeManagement.Common.ConstantModels;
 using EmployeeManagement.Common.CustomValidation;
 using EmployeeManagement.Common.Mappings;
 using EmployeeManagement.Data.Contracts;
@@ -8,6 +9,7 @@ using EmployeeManagement.Data.DbModels;
 using EmployeeManagement.Data.Implementaion;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -65,13 +67,19 @@ namespace EmployeeManagement.UI
                 .AddEntityFrameworkStores<EmployeeManagementContext>()
                 .AddPasswordValidator<CustomPasswordValidator>()
                 .AddUserValidator<CustomUserValidator>()
-                .AddErrorDescriber<CustomIdentityErrorDescriber>();
+                .AddErrorDescriber<CustomIdentityErrorDescriber>()
+                .AddDefaultTokenProviders();
 
+            //CookieBuilder cookieBuilder = new CookieBuilder();
 
+            //cookieBuilder.Name = "EmployeeManagement";
+            //cookieBuilder.HttpOnly = false;
+            //cookieBuilder.SameSite = SameSiteMode.Lax;
+            //cookieBuilder.SecurePolicy = CookieSecurePolicy.SameAsRequest;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<Employee> userManager, RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -86,7 +94,7 @@ namespace EmployeeManagement.UI
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            SeedData.Seed(userManager, roleManager);
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

@@ -426,7 +426,9 @@ C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\ne
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\EmployeeManagement.UI.TagHelpers.output.cache
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\EmployeeManagement.UI.RazorCoreGenerate.cache
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\Razor\Views\Account\LogIn.cshtml.g.cs
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\Razor\Views\Account\ResetPassword.cshtml.g.cs
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\Razor\Views\Account\SignUp.cshtml.g.cs
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\Razor\Views\Account\_LayoutAccount.cshtml.g.cs
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\Razor\Views\EmployeeLeaveRequest\Index.cshtml.g.cs
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\Razor\Views\EmployeeLeaveTypes\Create.cshtml.g.cs
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\Razor\Views\EmployeeLeaveTypes\Edit.cshtml.g.cs
@@ -447,4 +449,4 @@ C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\ne
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\ref\EmployeeManagement.UI.dll
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\EmployeeManagement.UI.pdb
 C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\EmployeeManagement.UI.genruntimeconfig.cache
-C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\Razor\Views\Account\_LayoutAccount.cshtml.g.cs
+C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\obj\Debug\net5.0\Razor\Views\Account\ResetPasswordConfirm.cshtml.g.cs

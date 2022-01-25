@@ -19,6 +19,7 @@
         #region EmployeeAccountLogin
         public const string EmailOrPassworndWrong = "Email adresiniz veya şifreniz yanlıştır";
         public const string DoesNotHaveEmail = "Bu email adresine ait kayıtlı kullanıcı bulunamamıştır";
+        public const string OccurredAnError = "Bir hata meydana geldi. Lütfen daha sonra tekrar deneyiniz";
         #endregion
 
         #region EmployeeAcccuntSignup
@@ -30,6 +31,17 @@
         public const string PasswordRequiresNonAlphanumeric = "Şifrenizde En Az 1 Özel Karakter Harf Bulunmalıdır";
         public const string PasswordRequiresDigit = "Şifrenizde En Az 1 Rakam Bulunmalıdır ('0'-'9')";
         public const string UserNameCanNotStartDigit = "Kullanıcı Adının İlk Karakteri Rakam İçeremez";
+        #endregion
+
+        #region SeedRole
+        public const string Admin_Role = "Administrator";
+        public const string Employee_Role = "Employee";
+        #endregion
+
+        #region SeedUser
+        public const string Admin_Name = "Admin";
+        public const string Admin_Email = "omer.ingec24@gmail.com";
+        public const string Admin_Password = "Test123.";
         #endregion
 
     }
