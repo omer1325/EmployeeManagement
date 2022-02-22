@@ -17,7 +17,7 @@ namespace EmployeeManagement.Common.CustomValidation
             {
                 if (user.UserName[0].ToString() == item)
                 {
-                    errors.Add(new IdentityError() { Code = "UserNameContainsFirstLetterDigits", Description = ResultConstant.UserNameCanNotStartDigit });
+                    errors.Add(new IdentityError() { Code = "UserNameContainsFirstLetterDigits", Description = Constant.UserNameCanNotStartDigit });
                 }
             }
             if (errors.Count == 0)

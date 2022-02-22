@@ -16,16 +16,16 @@ namespace EmployeeManagement.Common.CustomValidation
             {
                 if (!user.Email.Contains(user.UserName))
                 {
-                    errors.Add(new IdentityError() { Code = "PasswordCotainsUserName", Description = ResultConstant.PasswordNotContainUserName });
+                    errors.Add(new IdentityError() { Code = "PasswordCotainsUserName", Description = Constant.PasswordNotContainUserName });
                 }
             }
             if (password.ToLower().Contains("1234"))
             {
-                errors.Add(new IdentityError() { Code = "PaswordContains1234", Description = ResultConstant.PasswordNotContain1234 });
+                errors.Add(new IdentityError() { Code = "PaswordContains1234", Description = Constant.PasswordNotContain1234 });
             }
             if (password.ToLower().Contains(user.Email.ToLower()))
             {
-                errors.Add(new IdentityError() { Code = "PasswordContainsEmail", Description = ResultConstant.PasswordNotContainEmail });
+                errors.Add(new IdentityError() { Code = "PasswordContainsEmail", Description = Constant.PasswordNotContainEmail });
             }
 
             if (errors.Count == 0)

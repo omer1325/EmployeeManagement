@@ -1,4 +1,9 @@
-﻿<html lang="en">
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+
+<html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
@@ -8,7 +13,6 @@
     <meta name="description" content="overview &amp; stats" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-    <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/font-awesome/4.5.0/css/font-awesome.min.css" />
 
@@ -54,7 +58,7 @@
 
                 <span class="icon-bar"></span>
             </button>
-
+            
             <div class="navbar-header pull-left">
                 <a href="index.html" class="navbar-brand">
                     <small>
@@ -62,8 +66,8 @@
                         Çalışan İzin Takip Sistemi
                     </small>
                 </a>
+               
             </div>
-
 
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 @*<partial name="_LoginPartial" />*@
@@ -83,77 +87,63 @@
 
             <ul class="nav nav-list">
 
-                <li class="">
-                    <a asp-controller="EmployeeLeaveTypes" asp-action="Index">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Çalışan İzin Tipi
-                    </a>
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a asp-controller="EmployeeLeaveAssign" asp-action="Index">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        İzin Talep Listesi
-                    </a>
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a asp-controller="WorkOrder" asp-action="Index">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        İş Emri Listesi
-                    </a>
-                    <b class="arrow"></b>
-                </li>
-
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    if (User.IsInRole(EmployeeManagement.Common.ConstantModels.Constant.Admin_Role))
+                        {
+                        <li class="">
+                            <a asp-controller="EmployeeLeaveTypes" asp-action="Index">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Çalışan İzin Tipi
+                            </a>
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a asp-controller="EmployeeLeaveAllocation" asp-action="Index">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                İzin Talep Listesi
+                            </a>
+                            <b class="arrow"></b>
+                        </li>
+                    }
+                }
                 <li class="">
                     <a asp-controller="EmployeeLeaveRequest" asp-action="Index">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        Çalışan İzin Talebi
+                        Çalışan Talep
                     </a>
                     <b class="arrow"></b>
                 </li>
                 <li class="">
-                    <a asp-controller="Employee" asp-action="Index">
+                    <a asp-controller="EmployeeAccount" asp-action="Index">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        İş Emirleri Listesi
+                        Hesabım
                     </a>
                     <b class="arrow"></b>
                 </li>
-                <li class="">
-                    <a asp-area="Identity" asp-page="/Account/Login">
-                        <span class="text-danger">Login</span>
-                    </a>
-                    <b class="arrow"></b>
-                </li>
-                <li class="">
-                    <a asp-area="Identity" asp-page="/Account/Register">
-                        <span class="text-danger">Register</span>
-                    </a>
-                    <b class="arrow"></b>
-                </li>
+            </ul>
+             
 
 
-            </ul><!-- /.nav-list -->
+                <!-- /.nav-list -->
 
-            <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-                <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
-                   data-icon1="ace-icon fa fa-angle-double-left"
-                   data-icon2="ace-icon fa fa-angle-double-right"></i>
+                <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+                    <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
+                       data-icon1="ace-icon fa fa-angle-double-left"
+                       data-icon2="ace-icon fa fa-angle-double-right"></i>
+                </div>
             </div>
-        </div>
 
         <div class="main-content">
             <div class="main-content-inner">
                 <div class="breadcrumbs ace-save-state" id="breadcrumbs">
                     <div class="nav-search" id="nav-search">
-                        <form class="form-search">
-                            <span class="input-icon">
-                                <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-                                <i class="ace-icon fa fa-search nav-search-icon"></i>
-                            </span>
-                        </form>
+                        <div>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                @User.Identity.Name
+                            }
+                        </div>
                     </div><!-- /.nav-search -->
                 </div>
                 <div class="page-content">
@@ -270,17 +260,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <!-- <![endif]-->
-    <!--[if IE]>
-    <script src="~/js/jquery-1.11.3.min.js"></script>
-    <![endif]-->
-
     <script src="~/js/bootstrap.min.js"></script>
-
-    <!-- page specific plugin scripts -->
-    <!--[if lte IE 8]>
-      <script src="~/js/excanvas.min.js"></script>
-    <![endif]-->
     <script src="~/js/moment.min.js"></script>
     <script src="~/js/jquery-ui.custom.min.js"></script>
     <script src="~/js/jquery.ui.touch-punch.min.js"></script>
@@ -326,21 +306,12 @@
                 { label: "other", data: 10, color: "#FEE074" }
             ]
 
-            /**
-            we saved the drawing function and the data to redraw with different position later when switching to RTL mode dynamically
-            so that's not needed actually.
-            */
-
-            //pie chart tooltip example
             var $tooltip = $("<div class='tooltip top in'><div class='tooltip-inner'></div></div>").hide().appendTo('body');
             var previousPoint = null;
             /////////////////////////////////////
             $(document).one('ajaxloadstart.page', function (e) {
                 $tooltip.remove();
             });
-
-
-
 
             var d1 = [];
             for (var i = 0; i < Math.PI * 2; i += 0.5) {
@@ -375,9 +346,6 @@
                 size: 300
             });
 
-
-            //Android's default browser somehow is confused when tapping on label which will lead to dragging the task
-            //so disable dragging when clicking on label
             var agent = navigator.userAgent.toLowerCase();
             if (ace.vars['touch'] && ace.vars['android']) {
                 $('#tasks').on('touchstart', function (e) {

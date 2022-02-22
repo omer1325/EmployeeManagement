@@ -14,37 +14,37 @@ namespace EmployeeManagement.Common.ConstantModels
 
         private static void SeedUsers(UserManager<Employee> userManager)
         {
-            if (userManager.FindByNameAsync(ResultConstant.Admin_Email).Result == null)
+            if (userManager.FindByNameAsync(Constant.Admin_Email).Result == null)
             {
                 var user = new Employee
                 {
-                    UserName = ResultConstant.Admin_Name,
-                    Email = ResultConstant.Admin_Email
+                    UserName = Constant.Admin_Name,
+                    Email = Constant.Admin_Email
                 };
 
-                var result = userManager.CreateAsync(user, ResultConstant.Admin_Password).Result;
+                var result = userManager.CreateAsync(user, Constant.Admin_Password).Result;
                 if (result.Succeeded)
                 {
-                    userManager.AddToRoleAsync(user, ResultConstant.Admin_Role);
+                    userManager.AddToRoleAsync(user, Constant.Admin_Role);
                 }
             }
         }
 
         private static void SeedRoles(RoleManager<IdentityRole> roleManager)
         {
-            if (!roleManager.RoleExistsAsync(ResultConstant.Admin_Role).Result)
+            if (!roleManager.RoleExistsAsync(Constant.Admin_Role).Result)
             {
                 var role = new IdentityRole
                 {
-                    Name = ResultConstant.Admin_Role
+                    Name = Constant.Admin_Role
                 };
                 var result = roleManager.CreateAsync(role).Result;
             }
-            if (!roleManager.RoleExistsAsync(ResultConstant.Employee_Role).Result)
+            if (!roleManager.RoleExistsAsync(Constant.Employee_Role).Result)
             {
                 var role = new IdentityRole
                 {
-                    Name = ResultConstant.Employee_Role
+                    Name = Constant.Employee_Role
                 };
                 var result = roleManager.CreateAsync(role).Result;
             }

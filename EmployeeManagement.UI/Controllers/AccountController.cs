@@ -1,8 +1,12 @@
 ﻿using EmployeeManagement.Common.ConstantModels;
+using EmployeeManagement.Common.SessionOperations;
 using EmployeeManagement.Common.ViewModels;
 using EmployeeManagement.Data.DbModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace EmployeeManagement.UI.Controllers
@@ -36,16 +40,30 @@ namespace EmployeeManagement.UI.Controllers
 
                         var result = await signInManager.PasswordSignInAsync(employee, userLogin.Password, userLogin.RememberMe, false);
 
+                        //var loginEmplyee = _employeeRepository.GetFirstOrDefault(u => u.Email == userLogin.Email);
+
+                        var loginEmployeeInfo = new SessionContext()
+                        {
+                            Email = employee.Email,
+                            FirstName = employee.FirstName,
+                            LastName = employee.LastName,
+                            LoginId = employee.Id,
+                            Picture = employee.Picture,
+                            IsAdmin = false
+                        };
+
+                        HttpContext.Session.SetString(Constant.LoginUserInfo, JsonConvert.SerializeObject(loginEmployeeInfo));
+
                         return RedirectToAction("Index", "EmployeeLeaveTypes");
                     }
                     else
                     {
-                        ModelState.AddModelError("", ResultConstant.EmailOrPassworndWrong);
+                        ModelState.AddModelError("", Constant.EmailOrPassworndWrong);
                     }
                 }
                 else
                 {
-                    ModelState.AddModelError("", ResultConstant.DoesNotHaveEmail);
+                    ModelState.AddModelError("", Constant.DoesNotHaveEmail);
                 }
 
             }
@@ -64,12 +82,18 @@ namespace EmployeeManagement.UI.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (userManager.Users.Any(u => u.PhoneNumber == userSignUp.PhoneNumber))
+                {
+                    ModelState.AddModelError("", Constant.PhoneNumberAlreadyExist);
+                    return View(userSignUp);
+                }
                 Employee newEmployee = new Employee();
                 newEmployee.UserName = userSignUp.UserName;
                 newEmployee.Email = userSignUp.Email;
+                newEmployee.PhoneNumber = userSignUp.PhoneNumber;
 
                 IdentityResult result = await userManager.CreateAsync(newEmployee, userSignUp.Password);
-
+                await userManager.AddToRoleAsync(newEmployee, Constant.Employee_Role);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("LogIn");
@@ -106,7 +130,7 @@ namespace EmployeeManagement.UI.Controllers
             }
             else
             {
-                ModelState.AddModelError("", ResultConstant.DoesNotHaveEmail);
+                ModelState.AddModelError("", Constant.DoesNotHaveEmail);
             }
 
             return View(employeeAccountPasswordResetVM);
@@ -144,7 +168,7 @@ namespace EmployeeManagement.UI.Controllers
             }
             else
             {
-                ModelState.AddModelError("", ResultConstant.OccurredAnError);
+                ModelState.AddModelError("", Constant.OccurredAnError);
             }
             return View(employeeAccountPasswordResetVM);
         }

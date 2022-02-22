@@ -57,8 +57,8 @@ namespace EmployeeManagement.Data.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<bool?>("Approved")
-                        .HasColumnType("boolean");
+                    b.Property<int?>("Approved")
+                        .HasColumnType("integer");
 
                     b.Property<string>("ApprovedEmployeeId")
                         .HasColumnType("text");
@@ -72,7 +72,7 @@ namespace EmployeeManagement.Data.Migrations
                     b.Property<int>("EmployeeLeaveTypeId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("End")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("RequestComments")
@@ -323,13 +323,22 @@ namespace EmployeeManagement.Data.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<DateTime>("DateOfBirth")
+                    b.Property<DateTime?>("BirthDay")
                         .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("City")
+                        .HasColumnType("text");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("text");
 
+                    b.Property<int>("Gender")
+                        .HasColumnType("integer");
+
                     b.Property<string>("LastName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Picture")
                         .HasColumnType("text");
 
                     b.Property<string>("TaxId")

@@ -8,9 +8,9 @@ namespace EmployeeManagement.Common.ViewModels
         [Display(Name = "Kullanıcı Adı")]
         public string UserName { get; set; }
 
-        //[Display(Name = "Telefon No:")]
-        //[RegularExpression(@"^(0(\d{3}) (\d{3}) (\d{2}) (\d{2}))$", ErrorMessage = "Telefon numarası uygun formatta değil")]
-        //public string PhoneNumber { get; set; }
+        [Display(Name = "Telefon No:")]
+        [RegularExpression(@"^(0(\d{3}) (\d{3}) (\d{2}) (\d{2}))$", ErrorMessage = "Telefon numarası uygun formatta değil")]
+        public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Email adresi gereklidir.")]
         [Display(Name = "Email adresi")]

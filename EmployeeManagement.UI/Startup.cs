@@ -44,15 +44,23 @@ namespace EmployeeManagement.UI
             services.AddAutoMapper(typeof(Maps));
 
             //services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeeLeaveAllocationRepository>();
-            //services.AddScoped<IEmployeeLeaveRequestRepository, EmployeeLeaveRequestRepository>();
+            services.AddScoped<IEmployeeLeaveRequestRepository, EmployeeLeaveRequestRepository>();
             services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
+            services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeeLeaveAllocationRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IEmployeeLeaveTypeBusinessEngine, EmployeeLeaveTypeBusinessEngine>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IEmployeeLeaveRequestBusinessEngine, EmployeeLeaveRequestBusinessEngine>();
+            services.AddScoped<IEmployeeLeaveAllocationBusinessEngine, EmployeeLeaveAllocationBusinessEngine>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
-            services.AddSession(); 
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.Name = "MainSession";
+            });
 
             services.AddIdentity<Employee, IdentityRole>( opts => 
             {
@@ -104,7 +112,7 @@ namespace EmployeeManagement.UI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                    pattern: "{controller=Account}/{action=LogIn}/{id?}"
                     );
                 endpoints.MapRazorPages();
             });

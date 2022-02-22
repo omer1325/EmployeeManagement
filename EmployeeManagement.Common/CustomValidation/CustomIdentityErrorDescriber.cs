@@ -44,7 +44,7 @@ namespace EmployeeManagement.Common.CustomValidation
             return new IdentityError
             {
                 Code = "PasswordRequiresUpper",
-                Description = ResultConstant.PasswordRequiresUpper
+                Description = Constant.PasswordRequiresUpper
             };
         }
 
@@ -53,7 +53,7 @@ namespace EmployeeManagement.Common.CustomValidation
             return new IdentityError
             {
                 Code = "PasswordRequiresLower",
-                Description = ResultConstant.PasswordRequiresLower
+                Description = Constant.PasswordRequiresLower
             };
         }
 
@@ -62,7 +62,7 @@ namespace EmployeeManagement.Common.CustomValidation
             return new IdentityError
             {
                 Code = "PasswordRequiresNonAlphanumeric",
-                Description = ResultConstant.PasswordRequiresNonAlphanumeric
+                Description = Constant.PasswordRequiresNonAlphanumeric
             };
         }
 
@@ -71,7 +71,7 @@ namespace EmployeeManagement.Common.CustomValidation
             return new IdentityError
             {
                 Code = "PasswordRequiresDigit",
-                Description = ResultConstant.PasswordRequiresDigit
+                Description = Constant.PasswordRequiresDigit
             };
         }
     }

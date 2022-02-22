@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.UI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = Constant.Admin_Role)]
     public class EmployeeLeaveTypesController : Controller
     {
         private readonly IEmployeeLeaveTypeBusinessEngine _employeeLeaveTypeBusinessEngine;
@@ -97,7 +97,7 @@ namespace EmployeeManagement.UI.Controllers
         {
             if (id <= 0)
             {
-                return Json(new { success = false, message = ResultConstant.RecordDeleteNotBeEmpty });
+                return Json(new { success = false, message = Constant.RecordDeleteNotBeEmpty });
             }
 
             var data = _employeeLeaveTypeBusinessEngine.RemoveEmployeeLeaveType(id);

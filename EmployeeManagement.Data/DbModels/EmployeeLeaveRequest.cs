@@ -25,10 +25,10 @@ namespace EmployeeManagement.Data.DbModels
         //--------------------------------------------------//
 
         public DateTime StartDate { get; set; }
-        public DateTime End { get; set; }
+        public DateTime EndDate { get; set; }
         public DateTime DateRequest { get; set; }
         public string RequestComments { get; set; }
-        public bool? Approved { get; set; }
+        public int? Approved { get; set; }
         public bool Cancelled { get; set; }
     }
 }

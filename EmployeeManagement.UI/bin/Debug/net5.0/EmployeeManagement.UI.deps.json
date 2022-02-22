@@ -36,6 +36,7 @@
           "EmployeeManagement.BusinessEngine": "1.0.0",
           "EmployeeManagement.Common": "1.0.0",
           "EmployeeManagement.Data": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.13",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "5.0.13",
           "Microsoft.AspNetCore.Session": "2.2.0",
           "Microsoft.EntityFrameworkCore": "5.0.13",

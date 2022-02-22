@@ -19,8 +19,15 @@ using EmployeeManagement.UI;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\omer\source\repos\EmployeeManagement\EmployeeManagement.UI\Views\_ViewImports.cshtml"
+using EmployeeManagement.Data.DbModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0a00dc27bea05f7468d680aefaa51a39940eaed2", @"/Views/EmployeeLeaveTypes/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"326aadb4c28a15daa33bac663c3db8b2e415cd83", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dc2b25f79d4e46e1bc0a545b207a59769437b873", @"/Views/_ViewImports.cshtml")]
     public class Views_EmployeeLeaveTypes_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<EmployeeManagement.Common.ViewModels.EmployeeLeaveTypeVM>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString(" btn btn-success"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -63,7 +70,7 @@ using EmployeeManagement.UI;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<div class=\"page-header\">\r\n    <h2>\r\n        <small>\r\n            <i class=\"ace-icon fa fa-angle-double-right\"></i>\r\n            Çalışan İzin Takip Listesi\r\n        </small>\r\n    </h2>\r\n</div>\r\n<br />\r\n\r\n<div class=\"col-6 text-left text-white\">\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a00dc27bea05f7468d680aefaa51a39940eaed25349", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a00dc27bea05f7468d680aefaa51a39940eaed25564", async() => {
                 WriteLiteral("Tip ekle");
             }
             );
@@ -124,7 +131,7 @@ using EmployeeManagement.UI;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n                        <td>\r\n                            <div class=\"hidden-sm hidden-xs btn-group\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a00dc27bea05f7468d680aefaa51a39940eaed28239", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a00dc27bea05f7468d680aefaa51a39940eaed28454", async() => {
                 WriteLiteral("\r\n                                    <i class=\"ace-icon fa fa-pencil bigger-120\"></i>\r\n                                ");
             }
             );

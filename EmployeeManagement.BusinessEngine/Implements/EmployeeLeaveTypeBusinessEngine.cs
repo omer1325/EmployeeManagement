@@ -36,7 +36,7 @@ namespace EmployeeManagement.BusinessEngine.Implements
 
             var leaveTypes = _mapper.Map<List<EmployeeLeaveType>, List<EmployeeLeaveTypeVM>>(data);
 
-            return new Result<List<EmployeeLeaveTypeVM>>(true, ResultConstant.RecordsFound, leaveTypes);
+            return new Result<List<EmployeeLeaveTypeVM>>(true, Constant.RecordsFound, leaveTypes);
         }
 
         public Result<EmployeeLeaveTypeVM> CreateEmployeeLeaveType(EmployeeLeaveTypeVM model)
@@ -51,16 +51,16 @@ namespace EmployeeManagement.BusinessEngine.Implements
 
                     _employeeLeaveTypeRepository.Add(leaveType);
                     _unitOfWork.Save();
-                    return new Result<EmployeeLeaveTypeVM>(true, ResultConstant.RecordCreateSuccessfully);
+                    return new Result<EmployeeLeaveTypeVM>(true, Constant.RecordCreateSuccessfully);
                 }
                 catch (System.Exception ex)
                 {
-                    return new Result<EmployeeLeaveTypeVM>(false, ResultConstant.RecordCreateNotSuccessfully + "=>" + ex.Message.ToString());
+                    return new Result<EmployeeLeaveTypeVM>(false, Constant.RecordCreateNotSuccessfully + "=>" + ex.Message.ToString());
                 }
             }
             else
             {
-                return new Result<EmployeeLeaveTypeVM>(false, ResultConstant.RecordCreateNotBeEmpty);
+                return new Result<EmployeeLeaveTypeVM>(false, Constant.RecordCreateNotBeEmpty);
             }
         }
 
@@ -71,11 +71,11 @@ namespace EmployeeManagement.BusinessEngine.Implements
             {
                 var leaveType = _mapper.Map<EmployeeLeaveType, EmployeeLeaveTypeVM>(data);
 
-                return new Result<EmployeeLeaveTypeVM>(true, ResultConstant.RecordFound, leaveType);
+                return new Result<EmployeeLeaveTypeVM>(true, Constant.RecordFound, leaveType);
             }
             else
             {
-                return new Result<EmployeeLeaveTypeVM>(true, ResultConstant.RecordNotFound);
+                return new Result<EmployeeLeaveTypeVM>(true, Constant.RecordNotFound);
             }
         }
 
@@ -88,16 +88,16 @@ namespace EmployeeManagement.BusinessEngine.Implements
                     var leaveType = _mapper.Map<EmployeeLeaveTypeVM, EmployeeLeaveType>(model);
                     _employeeLeaveTypeRepository.Update(leaveType);
                     _unitOfWork.Save();
-                    return new Result<EmployeeLeaveTypeVM>(true, ResultConstant.RecordUpdateSuccessfully);
+                    return new Result<EmployeeLeaveTypeVM>(true, Constant.RecordUpdateSuccessfully);
                 }
                 catch (System.Exception ex)
                 {
-                    return new Result<EmployeeLeaveTypeVM>(false, ResultConstant.RecordUpdateNotSuccessfully + "=>" + ex.Message.ToString());
+                    return new Result<EmployeeLeaveTypeVM>(false, Constant.RecordUpdateNotSuccessfully + "=>" + ex.Message.ToString());
                 }
             }
             else
             {
-                return new Result<EmployeeLeaveTypeVM>(false, ResultConstant.RecordCreateNotBeEmpty);
+                return new Result<EmployeeLeaveTypeVM>(false, Constant.RecordCreateNotBeEmpty);
             }
         }
 
@@ -110,11 +110,11 @@ namespace EmployeeManagement.BusinessEngine.Implements
                 data.IsActive = false;
                 _employeeLeaveTypeRepository.Update(data);
                 _unitOfWork.Save();
-                return new Result<EmployeeLeaveTypeVM>(true, ResultConstant.RecordDeleteSuccessfully);
+                return new Result<EmployeeLeaveTypeVM>(true, Constant.RecordDeleteSuccessfully);
             }
             else
             {
-                return new Result<EmployeeLeaveTypeVM>(false, ResultConstant.RecordDeleteNotSuccessfully);
+                return new Result<EmployeeLeaveTypeVM>(false, Constant.RecordDeleteNotSuccessfully);
             }
         }
 

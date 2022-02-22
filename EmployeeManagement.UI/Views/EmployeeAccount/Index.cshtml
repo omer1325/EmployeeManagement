@@ -1,0 +1,74 @@
+﻿@model EmployeeManagement.Common.ViewModels.EmployeeVM
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/EmployeeAccount/_LayoutEmployeeAccount.cshtml";
+}
+
+
+
+
+<h3 class="text-center">Kullanıcı Bilgileri</h3>
+
+<div class="row">
+    <form class="w-100">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Firstname">Adı</label>
+                    <input type="text" class="form-control" value="@Model.FirstName">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Lastname">Soyadı</label>
+                    <input type="text" class="form-control" value="@Model.LastName">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Email">Email address</label>
+            <input type="email" class="form-control" value="@Model.Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Telefon</label>
+            <input type="text" class="form-control" value="@Model.PhoneNumber" >
+        </div>
+        <div class="form-group">
+            <label for="Ciy">Şehir</label>
+            @if (Model.City != null)
+            {
+                <input type="text" class="form-control" value="@Model.City">
+            }
+            else
+            {
+                <input type="text" class="form-control" value="Belirtilmemiş">
+            }
+
+        </div>
+        <div class="form-group">
+            <label for="BirthDay">Doğum Tarihi</label>
+            @if (Model.BirthDay != null)
+            {
+                <input type="datetime" class="form-control" value="@Model.BirthDay?.ToShortDateString()">
+            }
+            else
+            {
+                <input type="datetime" class="form-control" value="Belirtilmemiş">
+            }
+        </div>
+        <div class="form-group">
+            <label for="Gender">Cinsiyet</label>
+                <input type="text" class="form-control" value="@Model.Gender">
+        </div>
+    </form>
+</div>
+
+
+@section Scripts{
+    <script>
+        $('#phone').mask("(999) 999-9999")
+    </script>
+}
+
+
